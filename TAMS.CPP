@@ -1,8 +1,9 @@
-#include<iostream.h>
+#include<iostream>
+using namespace std;
 #include<conio.h>
-#include<fstream.h>
+#include<fstream>
 #include<stdlib.h>
-#include<string.h>
+#include<string>
 
 class teacher
 {
@@ -133,7 +134,7 @@ void teacher :: display()
 
 int main()
 {
-	clrscr();
+	system("cls");
 	teacher T[5] ;
 
 	cout<<"\n \n \n \n \n \n";
@@ -141,31 +142,34 @@ int main()
 	cout<<"\t \t \t Teachers attendence management system \n";
 	cout<<"\t \t \t ------------------------------------- \n";
 	cout<<"\n \n \n";
+	cout<<"\t \t \t \t -by Kashish Ahuja";
+	cout<<"\n \n \n";
 	cout<<"Press any key to continue...\n";
 	getch();
-	clrscr();
+	system("cls");
 	int i=1;
 
 	fstream file;
-	file.open("TEST",ios::in | ios::out | ios::ate | ios::binary);
+	file.open("TEST5",ios::in | ios::out | ios::ate | ios::binary);
 	cout<<"Do you want to add a new teacher's data? [Y/N] : ";
 	char ch; cin>>ch;
-	clrscr();
-	if(ch=='Y')
+	system("cls");
+	if(ch=='Y' || ch=='y')
 	{
 		again:
 		T[i].get();
 		file.write((char *) & T[i], sizeof(T[i]));
 		cout<<"Do you want to add more teacher's data? [Y/N] :  ";
 		char ch; cin>>ch;
-		clrscr();
-		if(ch=='Y'){
-			clrscr();
+		system("cls");
+		if(ch=='Y' || ch=='y')
+		{
+			system("cls");
 			 goto again;
 		}
-		else if(ch=='N')
+		else if(ch=='N' || ch=='n')
 			goto first;
-		clrscr();
+		system("cls");
 	}
 
 	first:
@@ -185,7 +189,7 @@ int main()
 	cout<<"Modify a teacher's data = 200 \n";
 	cout<<"Exit = 500 \n";
 	int n; cin>>n;
-	clrscr();
+	system("cls");
 
 	if(n==100)
 	{
@@ -195,10 +199,10 @@ int main()
 		cout<<"Successfully added \n\n";
 		cout<<"Do you want to add more teacher's data? [Y/N] :  ";
 		char ch; cin>>ch;
-		clrscr();
-		if(ch=='Y')
+		system("cls");
+		if(ch=='Y' || ch=='y')
 			 goto add;
-		else if(ch=='N')
+		else if(ch=='N' || ch=='n')
 			goto first;
 	}
 	else if(n==200)
@@ -227,10 +231,10 @@ int main()
 		cout<<"Successfully modified \n\n";
 		cout<<"Do you want to modify more data? [Y/N] : ";
 		char ch; cin>>ch;
-		clrscr();
-		if(ch=='Y')
+		system("cls");
+		if(ch=='Y' || ch=='y')
 			 goto modify;
-		else if(ch=='N')
+		else if(ch=='N' || ch=='n')
 			goto first;
 	}
 	else if(n==500)
@@ -250,7 +254,7 @@ int main()
 		cout<<"Go back = 300 \n";
 		cout<<"Exit = 500 \n\n";
 		int num; cin>>num;
-		clrscr();
+		system("cls");
 		if(num==1)
 		{
 			T[i].put();
@@ -259,7 +263,7 @@ int main()
 			cout<<"Go to main menu = 100 \n";
 			cout<<"Exit = 500 \n\n";
 			int r; cin>>r;
-			clrscr();
+			system("cls");
 			if(r==300)
 				goto second;
 			if(r==100)
@@ -276,7 +280,7 @@ int main()
 			cout<<"Go to main menu = 100 \n";
 			cout<<"Exit = 500 \n\n";
 			int r; cin>>r;
-			clrscr();
+			system("cls");
 			if(r==300)
 				goto second;
 			if(r==100)
@@ -292,7 +296,7 @@ int main()
 			cout<<"Go to main menu = 100 \n";
 			cout<<"Exit = 500 \n\n";
 			int r; cin>>r;
-			clrscr();
+			system("cls");
 			if(r==300)
 				goto second;
 			if(r==100)
