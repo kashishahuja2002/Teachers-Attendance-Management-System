@@ -22,7 +22,6 @@ class teacher
 
 void teacher :: get()
 {
-	// cout<<"Enter teacher's name: "; cin>>name;
 	cout<<"Enter teacher's name: "; cin.get(); cin.get(name, 20);
 	cout<<"Enter teacher's department: "; cin>>depart;
 	cout<<"Enter teacher's subject: "; cin>>subject;
@@ -46,7 +45,7 @@ void teacher :: names(int q)
 
 void teacher :: date()
 {
-	cout<<"Enter date for which you want to mark attendance in form of dd, mm, yy \n";
+	cout<<"\nEnter date for which you want to mark attendance in form of dd, mm, yy \n";
 	cin>>dd>>mm>>yy;
 	check();
 }
@@ -99,9 +98,9 @@ void teacher :: mark()
 {
 	cout<<"\n";
 	cout<<"Select attendance option for "<<dd<<"/"<<mm<<"/"<<yy<<endl;
-	cout<<"Absent = A/a \n";
-	cout<<"Present = P/p \n";
-	cout<<"Holiday/no class = H/h \n";
+	cout<<"Absent = A \n";
+	cout<<"Present = P \n";
+	cout<<"Holiday/no class = H \n\n";
 	char z;
 	cin>>z;
 
@@ -182,7 +181,7 @@ int main()
 	cout<<"Select a teacher whose activity you want by entering its position number \n\n";
 	cout<<"Teacher's list \n";
 	cout<<"--------------------- \n";
-	file.seekp(0);
+	file.seekg(0);
 	int q=1;
 	while(file.read((char *) &T[i], sizeof(T[i])))
 	{
@@ -192,8 +191,8 @@ int main()
 	file.clear();
 	cout<<"---------------------- \n\n";
 	cout<<"100) Add another teacher's data\n";
-	cout<<"300) Modify a teacher's data\n";
-	cout<<"500) Exit\n";
+	// cout<<"300) Modify a teacher's data\n";
+	cout<<"500) Exit\n\n";
 	int n; cin>>n;
 	system("cls");
 
@@ -210,13 +209,13 @@ int main()
 		else if(ch=='N' || ch=='n')
 			goto first;
 	}
-	else if(n==300)
+	/*else if(n==300)
 	{
 		modify:
 		cout<<"Select a teacher whose data you want to modify by entering its position number \n\n";
 		cout<<"Teacher's list \n";
 		cout<<"--------------------- \n";
-		file.seekp(0);
+		file.seekg(0);
 		int q=1;
 		while(file.read((char *) & T[i], sizeof(T[i])))
 		{
@@ -228,8 +227,7 @@ int main()
 
 		int mod; cin>>mod;
 		int location = (mod-1)*sizeof(T[0]);
-		if(file.eof())
-			file.clear();
+		file.clear();
 		file.seekp(location);
 		cout<<"Enter new data. \n";
 		T[mod].get();
@@ -243,7 +241,7 @@ int main()
 			goto modify;
 		else if(ch=='N' || ch=='n')
 			goto first;
-	}
+	}*/
 	else if(n==500)
 		exit(0);
 	else
@@ -280,20 +278,32 @@ int main()
 		}
 		else if(num==2)
 		{
+			mark:
 			T[i].date();
 			T[i].mark();
 			cout<<"\n";
-			cout<<"100) Go back\n";
-			cout<<"300) Go to main menu\n";
-			cout<<"500) Exit\n\n";
-			int r; cin>>r;
-			system("cls");
-			if(r==100)
-				goto second;
-			if(r==300)
-				goto first;
-			if(r==500)
-				exit(0);
+			cout<<"Do you want to mark attendance for another day? [Y/N]: ";
+			char ch; cin>>ch;
+
+			if(ch=='Y' || ch=='y')
+			{
+				goto mark;
+			} 
+
+			if(ch=='N' || ch=='n')
+			{
+				cout<<"\n\n100) Go back\n";
+				cout<<"300) Go to main menu\n";
+				cout<<"500) Exit\n\n";
+				int r; cin>>r;
+				system("cls");
+				if(r==100)
+					goto second;
+				if(r==300)
+					goto first;
+				if(r==500)
+					exit(0);
+			}
 		}
 		else if(num==3)
 		{
