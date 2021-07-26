@@ -7,7 +7,7 @@ using namespace std;
 
 class teacher
 {
-		char name[20], depart[10], subject[10], contact[10];
+		char name[20], depart[10], subject[20], contact[10];
 		int absent, present, holiday, dd, mm, yy;
     public:
 		teacher() {absent=0; present=0; holiday=0;}
@@ -45,6 +45,7 @@ void teacher :: names(int q)
 
 void teacher :: date()
 {
+	system("cls");
 	cout<<"\nEnter date for which you want to mark attendance in form of dd, mm, yy \n";
 	cin>>dd>>mm>>yy;
 	check();
@@ -152,7 +153,7 @@ int main()
 	int i=1;
 
 	fstream file;
-	file.open("TEST5", ios::app | ios::in | ios::out | ios::binary | ios::ate);
+	file.open("TAMS", ios::app | ios::in | ios::out | ios::binary | ios::ate);
 	cout<<"Do you want to add a new teacher's data? [Y/N] : ";
 	char ch; cin>>ch;
 	system("cls");
