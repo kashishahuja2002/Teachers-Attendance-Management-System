@@ -145,7 +145,6 @@ int main()
 	cout<<"\t \t \t ------------------------------------- \n";
 	cout<<"\n \n \n";
 	cout<<"\t \t \t \t \t \t - Kashish Ahuja \n";
-	cout<<"\t \t \t \t \t \t   @codeitmin";
 	cout<<"\n \n \n \n \n \n \n \n";
 	// cout<<"Press any key to continue...\n";
 	getch();
