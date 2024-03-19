@@ -17,6 +17,7 @@ class teacher
 		void date();
 		void check();
 		void mark();
+                float calculateAttendancePercentage();
 		void display();
 };
 
@@ -124,6 +125,14 @@ void teacher :: mark()
 			exit(0);
 		}
 	cout<<"Attendance marked successfully. \n\n";
+}
+float teacher::calculateAttendancePercentage() {
+	int total_Days = present + absent + holiday;
+	if (total_Days == 0) {
+		return 100.0; 
+	}
+	float attendance_Percentage = (float(present) / float(totalDays)) * 100;
+	return attendance_Percentage;
 }
 
 void teacher :: display()
@@ -254,7 +263,8 @@ int main()
 		cout<<"------------------- \n";
 		cout<<"1) Show teacher's data \n";
 		cout<<"2) Mark attendance \n";
-		cout<<"3) Display attendance \n";
+                cout<<"3) Attendance Percentage\n";
+		cout<<"4) Display attendance \n";
 		cout<<"-------------------- \n\n";
 		cout<<"100) Go back\n";
 		cout<<"500) Exit\n\n";
@@ -305,7 +315,24 @@ int main()
 					exit(0);
 			}
 		}
-		else if(num==3)
+                          else if (num == 3)
+                         {
+	                        float attendancePercentage = T[i].calculateAttendancePercentage();
+	                        cout << "Attendance Percentage: " << attendancePercentage << "%" << endl;
+	                        cout << "\n";
+	                        cout << "100) Go back\n";
+	                        cout << "300) Go to main menu\n";
+	                        cout << "500) Exit\n\n";
+	                         int r; cin >> r;
+	                        system("cls");
+	                        if (r == 100)
+		                goto second;
+	                        if (r == 300)
+	                   	goto first;
+	                        if (r == 500)
+		                exit(0);
+                        }
+		else if(num==4)
 		{
 			T[i].display();
 			cout<<"\n";
